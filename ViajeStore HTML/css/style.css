@@ -1,0 +1,511 @@
+/* 
+ * ================================================================
+ * VIAJESTORE - HOJA DE ESTILOS PRINCIPAL
+ * ================================================================
+ */
+
+/* ================= VARIABLES GLOBALES ================= */
+:root {
+    /* Paleta de colores de la marca */
+    --primary: #FF6B35;
+    /* Naranja vibrante para comida/acción */
+    --secondary: #00A896;
+    /* Verde/Teal para tecnología/servicios */
+    --dark: #1a1a1a;
+    /* Negro suave para fondos y textos fuertes */
+    --light: #f8f9fa;
+    /* Blanco humo para fondos generales */
+    --text-dark: #2c3e50;
+    /* Gris oscuro para lectura */
+    --text-light: #ffffff;
+}
+
+/* ================= ESTILOS BASE ================= */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--light);
+    color: var(--text-dark);
+    padding-top: 76px;
+    /* Compensación importante para que la barra de navegación fija no tape contenido */
+}
+
+/* ================= BARRA DE NAVEGACIÓN (NAVBAR) ================= */
+/* ================= BARRA DE NAVEGACIÓN (NAVBAR) ================= */
+.navbar {
+    background-color: #141414;
+    /* Fondo sólido oscuro para coincidir con el logo */
+    padding: 1rem 0;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary) !important;
+    /* Forzamos el color naranja del logo */
+    font-size: 1.5rem;
+}
+
+.nav-link {
+    color: var(--text-light) !important;
+    font-weight: 500;
+    transition: color 0.3s;
+    /* Transición suave al pasar el mouse */
+}
+
+.nav-link:hover {
+    color: var(--primary) !important;
+    /* Cambio de color al hacer hover */
+}
+
+/* Contador del carrito (Badge rojo) */
+.cart-badge {
+    background-color: #e74c3c;
+    border-radius: 50%;
+    /* Círculo perfecto */
+    padding: 0.25em 0.6em;
+    font-size: 0.75rem;
+    vertical-align: top;
+    margin-left: 5px;
+}
+
+/* ================= SECCIÓN HERO (PORTADA) ================= */
+.hero-section {
+    /* Fondo con degradado oscuro sobre imagen para mejorar legibilidad del texto */
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1630384060421-a4323ceca0ad?q=80&w=1920&auto=format&fit=crop');
+    background-size: cover;
+    /* Asegura que la imagen cubra todo el espacio */
+    background-position: center;
+    /* Centra la imagen */
+    color: white;
+    padding: 130px 0;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 3rem;
+    /* Texto muy grande para impacto */
+    font-weight: 800;
+    /* Negrita extra */
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    color: #ddd;
+    /* Gris claro */
+}
+
+/* ================= SECCIÓN VIDEO SCROLLY-TELLING ================= */
+/* Contenedor alto para permitir mucho scroll */
+.scrolly-video-container {
+    position: relative;
+    height: 400vh;
+    /* 4 veces la altura de la pantalla -> determina la duración del efecto */
+    background-color: #000;
+}
+
+/* Elemento "pegajoso" que se mantiene fijo mientras se hace scroll en el contenedor padre */
+.sticky-wrapper {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    /* Ocupa toda la pantalla vertical */
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#scrollVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* El video cubre todo el fondo sin deformarse */
+    filter: brightness(0.6);
+    /* Oscurecemos el video para que el texto encima resalte */
+}
+
+/* Texto superpuesto al video */
+.scrolly-text-overlay {
+    position: absolute;
+    z-index: 10;
+    color: white;
+    text-align: center;
+    opacity: 0;
+    /* Empieza invisible */
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+    /* Permite hacer click "a través" del texto si fuera necesario */
+    width: 100%;
+    padding: 0 20px;
+}
+
+.scrolly-text-visible {
+    opacity: 1;
+    /* Clase para mostrar el texto */
+}
+
+/* ================= BOTONES PERSONALIZADOS ================= */
+.btn-primary-custom {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+    /* Bordes completamente redondeados (Pill shape) */
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary-custom:hover {
+    background-color: #e65a28;
+    /* Un naranja un poco más oscuro */
+    color: white;
+    transform: translateY(-2px);
+    /* Efecto de elevación */
+    box-shadow: 0 5px 15px rgba(255, 107, 53, 0.4);
+    /* Sombra difusa color naranja */
+}
+
+.btn-secondary-custom {
+    background-color: transparent;
+    color: var(--secondary);
+    border: 2px solid var(--secondary);
+    padding: 12px 30px;
+    font-weight: 600;
+    border-radius: 50px;
+}
+
+.btn-secondary-custom:hover {
+    background-color: var(--secondary);
+    color: white;
+}
+
+/* ================= CARRUSEL DE PRODUCTOS ================= */
+.products-carousel-container {
+    display: flex;
+    overflow-x: auto;
+    /* Scroll horizontal */
+    scroll-snap-type: x mandatory;
+    /* Snap al scrollear */
+    gap: 20px;
+    padding: 20px 5px;
+    /* Padding para evitar cortes en sombras */
+    scrollbar-width: none;
+    /* Firefox: oculta scrollbar */
+    -ms-overflow-style: none;
+    /* IE/Edge */
+}
+
+.products-carousel-container::-webkit-scrollbar {
+    display: none;
+    /* Chrome/Safari: oculta scrollbar */
+}
+
+.product-slide {
+    flex: 0 0 auto;
+    /* No encoger ni crecer */
+    width: 300px;
+    /* Aumentado de 280px */
+    scroll-snap-align: center;
+    /* Centrar al soltar scroll */
+}
+
+@media(min-width: 768px) {
+    .product-slide {
+        width: 360px;
+        /* Aumentado de 320px */
+    }
+}
+
+/* Botones de Navegación del Carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: none;
+    background-color: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--primary);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.carousel-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    box-shadow: 0 6px 15px rgba(255, 107, 53, 0.3);
+}
+
+.carousel-btn-prev {
+    left: -20px;
+}
+
+.carousel-btn-next {
+    right: -20px;
+}
+
+/* ================= TARJETAS (CARDS) ================= */
+.card-custom {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    height: 100%;
+    /* Asegura que todas las tarjetas en una fila tengan la misma altura */
+    overflow: hidden;
+}
+
+.card-custom:hover {
+    transform: translateY(-5px);
+    /* Efecto de flotar al pasar el mouse */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    /* Recorta la imagen para llenar el espacio sin deformar */
+}
+
+.card-price {
+    font-size: 1.25rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+/* ================= OTROS COMPONENTES ================= */
+.section-padding {
+    padding: 100px 0;
+}
+
+/* Sección de Pantalla Completa (Full Viewport) */
+.full-screen-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    /* Separación extra para que no se pegue al video scrolly */
+    margin-top: 2rem;
+}
+
+/* Ajuste responsive para móviles */
+@media (max-width: 768px) {
+    .full-screen-section {
+        padding: 60px 0;
+        /* Menos padding en móvil */
+        height: auto;
+        /* Permitir crecer si el contenido es mucho */
+        min-height: auto;
+        /* No forzar 100vh si corta contenido */
+    }
+}
+
+.value-card {
+    text-align: center;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 20px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    position: relative;
+    z-index: 1;
+}
+
+.value-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary);
+}
+
+.value-icon-wrapper {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--light) 0%, #fff 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.5s ease;
+}
+
+.value-card:hover .value-icon-wrapper {
+    transform: rotateY(180deg);
+    background: var(--primary);
+}
+
+.value-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    transition: color 0.3s;
+}
+
+.value-card:hover .value-icon {
+    color: white;
+}
+
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-100 {
+    transition-delay: 0.1s;
+}
+
+.delay-200 {
+    transition-delay: 0.2s;
+}
+
+.delay-300 {
+    transition-delay: 0.3s;
+}
+
+/* Footer */
+footer {
+    background-color: var(--dark);
+    color: #ccc;
+    padding: 60px 0 30px;
+}
+
+footer a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: var(--primary);
+}
+
+/* Validación visual de formularios (Checkout) */
+/* ================= VALIDACIONES ================= */
+.is-valid-commune {
+    border-color: #27ae60 !important;
+    background-image: none !important;
+}
+
+.is-invalid-commune {
+    border-color: #e74c3c !important;
+    background-image: none !important;
+}
+
+.text-primary-custom {
+    color: var(--primary);
+}
+
+/* ================= NAV HELPER & BACK TO TOP ================= */
+.navbar {
+    transition: transform 0.3s ease-in-out;
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.btn-back-to-top {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: none;
+    /* Se muestra con JS */
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    z-index: 1000;
+    padding: 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* FIX: Permitir click en botones del Hero Overlay */
+.scrolly-text-overlay {
+    pointer-events: none;
+    /* El contenedor deja pasar clicks */
+}
+
+.scrolly-text-overlay .btn,
+.scrolly-text-overlay a,
+.scrolly-text-overlay button {
+    pointer-events: auto;
+    /* Los botones SÍ capturan clicks */
+    position: relative;
+    z-index: 20;
+}
+
+/* ================= CHECKOUT MODAL RESPONSIVE ================= */
+/* Asegura que el modal de checkout se vea bien en todos los dispositivos */
+
+#checkoutModal .modal-content {
+    border-radius: 0.5rem;
+}
+
+/* Mobile: Modal ocupa casi toda la pantalla */
+@media (max-width: 768px) {
+    #checkoutModal .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100vw - 1rem);
+    }
+
+    #checkoutModal .modal-content {
+        max-height: 95vh !important;
+    }
+
+    #checkoutModal .modal-body {
+        padding: 1rem !important;
+    }
+
+    /* Columnas en stack vertical en mobile */
+    #checkoutModal .modal-body .row {
+        flex-direction: column;
+    }
+
+    #checkoutModal .modal-body .col-md-7,
+    #checkoutModal .modal-body .col-md-5 {
+        border: none !important;
+        padding: 0 !important;
+        max-width: 100%;
+        padding-bottom: 1rem !important;
+    }
+
+    #checkoutModal .modal-body .col-md-7 {
+        border-bottom: 1px solid #dee2e6 !important;
+        margin-bottom: 1rem;
+    }
+
+    /* Inputs de fila también en stack */
+    #checkoutModal .modal-body .row .col-md-6 {
+        max-width: 100%;
+    }
+}
+
+/* Tablet: Ajustes intermedios */
+@media (min-width: 769px) and (max-width: 991px) {
+    #checkoutModal .modal-dialog {
+        max-width: 90vw;
+    }
+}

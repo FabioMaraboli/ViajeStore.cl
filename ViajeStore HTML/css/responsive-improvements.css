@@ -1,0 +1,144 @@
+/* ================================================================
+   MEJORAS DE RESPONSIVIDAD - AUDITORÍA 27/12/2025
+   ================================================================ */
+
+/* Fix: Navbar siempre visible en desktop */
+@media (min-width: 992px) {
+    .navbar-collapse {
+        display: flex !important;
+    }
+
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* Fix: Espaciado hero mobile */
+@media (max-width: 576px) {
+    .hero-content small {
+        font-size: 0.75rem;
+        margin-top: 0.75rem;
+        display: block;
+        line-height: 1.4;
+        padding: 0 1rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .hero-content .subtitle {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+/* Mejora: Value cards en tablet (2 columnas optimizadas) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .value-card-container .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .value-card-container .col-md-4:nth-child(3) {
+        grid-column: 1 / -1;
+        max-width: 50%;
+        margin: 0 auto;
+    }
+}
+
+/* Mejora: Footer padding en mobile */
+@media (max-width: 768px) {
+    footer {
+        padding: 2rem 0 !important;
+    }
+
+    footer .row>div {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Mejora: Touch targets mínimos (44x44px) */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+        padding: 0.75rem 1.5rem;
+    }
+
+    .carousel-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+}
+
+/* Mejora: Focus visible para accesibilidad */
+*:focus {
+    outline: 3px solid var(--primary-orange, #FF8C42);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+    outline: 3px solid var(--primary-orange, #FF8C42);
+    outline-offset: 2px;
+}
+
+/* Skip to content (accesibilidad) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary-orange, #FF8C42);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Mejora: Lazy loading placeholder */
+img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Mejora: Contraste mejorado para texto secundario */
+.text-muted {
+    color: #6c757d !important;
+}
+
+@media (prefers-contrast: high) {
+    .text-muted {
+        color: #495057 !important;
+    }
+}
+
+/* Mejora: Reducir movimiento para usuarios sensibles */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

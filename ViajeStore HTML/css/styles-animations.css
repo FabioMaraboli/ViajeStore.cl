@@ -1,0 +1,471 @@
+/*
+ * ================================================================
+ * VIAJESTORE - ANIMATION STYLES
+ * ================================================================
+ * Professional animations using Animate.css + custom effects
+ * Non-invasive: Only CSS classes, no HTML structure changes
+ */
+
+/* ================================================================
+   CSS CUSTOM PROPERTIES (Variables)
+   ================================================================ */
+:root {
+    /* Animation Timings */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.6s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.1);
+    --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.15);
+
+    /* Colors for animations */
+    --color-primary: #FF8C32;
+    --color-secondary: #1FB4D8;
+}
+
+/* ================================================================
+   1. HERO SECTION - Scroll Video Hero
+   ================================================================ */
+
+/* Hero Title - Fade In */
+.hero-title {
+    animation: fadeIn 0.8s ease-out 0.3s backwards;
+}
+
+/* Hero Subtitle - Slide Up */
+.hero-subtitle {
+    animation: slideInUp 0.6s ease-out 0.5s backwards;
+}
+
+/* Hero Buttons - Bounce In (Only in Hero Section) */
+.scrolly-text-overlay .btn-primary-custom,
+.scrolly-text-overlay .btn-secondary-custom {
+    animation: bounceIn 0.8s ease-out 0.7s backwards;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* General Buttons - No Animation (e.g., modal buttons) */
+.btn-primary-custom,
+.btn-secondary-custom {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+/* Hero Badge Pulse - Applied via JS */
+.hero-badge-pulse {
+    animation: pulse 2.5s ease-in-out infinite;
+}
+
+/* Video Ken Burns Effect (Subtle Zoom) */
+#scrollVideo {
+    animation: kenBurns 20s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.05);
+    }
+}
+
+/* ================================================================
+   2. VALUE CARDS (Misión/Visión/Compromiso)
+   ================================================================ */
+
+/* Base transition for all value cards */
+.value-card {
+    transition: all var(--transition-base);
+    position: relative;
+}
+
+/* Hover Effects */
+.value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Emoji Icon Rotation on Hover */
+.value-icon {
+    transition: transform var(--transition-base);
+    display: inline-block;
+}
+
+.value-card:hover .value-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Cascade Entry Animation - Applied via JS */
+.value-card.animate-cascade-1 {
+    animation: fadeInUp 0.6s ease-out 0.2s backwards;
+}
+
+.value-card.animate-cascade-2 {
+    animation: fadeInUp 0.6s ease-out 0.4s backwards;
+}
+
+.value-card.animate-cascade-3 {
+    animation: fadeInUp 0.6s ease-out 0.6s backwards;
+}
+
+/* ================================================================
+   3. PRODUCT CAROUSEL - Menu Products
+   ================================================================ */
+
+/* Base product slide */
+.product-slide {
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+/* Product Card */
+.product-slide .card-custom {
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hover Effects */
+.product-slide .card-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Image Zoom on Hover */
+.product-slide .card-img-top {
+    transition: transform var(--transition-base);
+}
+
+.product-slide .card-custom:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+/* Button Hover Enhancement */
+.product-slide .btn-primary-custom:hover {
+    background: linear-gradient(45deg, #ff9f43, #FF8C32);
+    transform: scale(1.02);
+}
+
+/* Stagger Animation - Applied via JS */
+.product-slide.animate-stagger {
+    animation: fadeInUp 0.5s ease-out backwards;
+}
+
+/* Filter Buttons Smooth Transition */
+.btn-group .btn-outline-primary {
+    transition: all var(--transition-base);
+}
+
+.btn-group .btn-outline-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.btn-group .btn-outline-primary.active {
+    transform: scale(1.05);
+}
+
+/* ================================================================
+   4. TECH VIDEO HERO - Fusión Digital Section
+   ================================================================ */
+
+/* Tech Hero Title */
+#tech-video-hero .hero-title {
+    animation: zoomIn 0.8s ease-out 0.3s backwards;
+}
+
+/* Tech Hero Subtitle */
+#tech-video-hero .hero-subtitle {
+    animation: slideInUp 0.6s ease-out 0.6s backwards;
+}
+
+/* Note: Pulse animation removed from tech CTA button per user preference */
+
+
+/* ================================================================
+   5. TECH SERVICES CARDS - Grid 2x2
+   ================================================================ */
+
+/* Service Card Base */
+.card-custom {
+    transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Service Card Hover */
+#services .card-custom:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+    border-left: 3px solid var(--color-primary);
+}
+
+/* Service Image Zoom */
+#services .card-img-top {
+    transition: transform var(--transition-base);
+}
+
+#services .card-custom:hover .card-img-top {
+    transform: scale(1.08);
+}
+
+/* Service Button Hover */
+#services .btn-outline-dark:hover {
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+    color: white;
+    transform: scale(1.02);
+}
+
+/* Stagger Grid Animation - Applied via JS */
+#services .card-custom.animate-grid-1 {
+    animation: fadeInUp 0.6s ease-out 0.3s backwards;
+}
+
+#services .card-custom.animate-grid-2 {
+    animation: fadeInUp 0.6s ease-out 0.5s backwards;
+}
+
+#services .card-custom.animate-grid-3 {
+    animation: fadeInUp 0.6s ease-out 0.7s backwards;
+}
+
+#services .card-custom.animate-grid-4 {
+    animation: fadeInUp 0.6s ease-out 0.9s backwards;
+}
+
+/* ================================================================
+   6. FOOTER - Animated Links & Columns
+   ================================================================ */
+
+/* Footer Column Fade In - Applied via JS */
+footer .col-md-4.animate-footer-1 {
+    animation: fadeInUp 0.5s ease-out 0.2s backwards;
+}
+
+footer .col-md-4.animate-footer-2 {
+    animation: fadeInUp 0.5s ease-out 0.4s backwards;
+}
+
+footer .col-md-4.animate-footer-3 {
+    animation: fadeInUp 0.5s ease-out 0.6s backwards;
+}
+
+/* Footer Links - Underline Animation */
+footer a {
+    position: relative;
+    display: inline-block;
+    transition: color var(--transition-base);
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    transition: width var(--transition-base);
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* Footer Emoji Pulse on Hover */
+footer li:hover {
+    animation: pulse 0.5s ease-in-out;
+}
+
+/* Copyright Fade In */
+footer .text-center.mt-5 {
+    animation: fadeIn 0.8s ease-out 0.8s backwards;
+}
+
+/* ================================================================
+   7. GLOBAL MICRO-INTERACTIONS
+   ================================================================ */
+
+/* All Buttons Feedback */
+.btn,
+button {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.btn:hover,
+button:hover {
+    transform: scale(1.02);
+}
+
+.btn:active,
+button:active {
+    transform: scale(0.98);
+}
+
+/* Badges and Numbers Animation */
+.cart-badge,
+.badge {
+    animation: bounceIn 0.5s ease-out;
+    transition: transform var(--transition-fast);
+}
+
+.cart-badge:hover,
+.badge:hover {
+    transform: scale(1.1);
+}
+
+/* Navbar Smart Hide */
+.navbar {
+    transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.navbar-hidden {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+
+/* Back to Top Button */
+.btn-back-to-top {
+    animation: fadeInUp 0.4s ease-out;
+    transition: all var(--transition-base);
+}
+
+.btn-back-to-top:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: var(--shadow-md);
+}
+
+/* ================================================================
+   8. SCROLL ANIMATIONS - Intersection Observer Targets
+   ================================================================ */
+
+/* Elements with scroll animation start hidden */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+/* When visible in viewport */
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================================================================
+   9. ACCESSIBILITY - Reduced Motion
+   ================================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Disable Ken Burns on video */
+    #scrollVideo {
+        animation: none !important;
+    }
+
+    /* Disable pulse effects */
+    .hero-badge-pulse,
+    #tech-video-hero .btn-secondary-custom {
+        animation: none !important;
+    }
+}
+
+/* ================================================================
+   10. CUSTOM KEYFRAME ANIMATIONS
+   ================================================================ */
+
+/* Fade In */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Slide In Up */
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Bounce In */
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+
+    70% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Zoom In */
+@keyframes zoomIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Pulse */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}

@@ -1,0 +1,13 @@
+# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://viajestore.cl/sitemap.xml
+
+# Disallow admin areas (futuro)
+Disallow: /admin/
+Disallow: /backend/
+
+# Crawl-delay (opcional, para bots agresivos)
+Crawl-delay: 10

@@ -1,0 +1,372 @@
+/* 
+ * ================================================================
+ * VIAJESTORE - REVIEWS SECTION STYLES
+ * ================================================================
+ * Estilos para la sección de reseñas de Google Maps e Instagram
+ */
+
+/* ================= TABS DE NAVEGACIÓN ================= */
+.reviews-tabs {
+    background: #f8f9fa;
+    padding: 0.5rem;
+    border-radius: 50px;
+    display: inline-flex;
+    margin: 0 auto;
+}
+
+.reviews-tabs .nav-item {
+    margin: 0;
+}
+
+.reviews-tabs .nav-link {
+    border-radius: 50px;
+    padding: 0.75rem 2rem;
+    border: none;
+    background: transparent;
+    color: #6c757d;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.reviews-tabs .nav-link:hover {
+    background: rgba(255, 107, 53, 0.1);
+    color: var(--primary);
+}
+
+.reviews-tabs .nav-link.active {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 107, 53, 0.3);
+}
+
+.tab-icon {
+    font-size: 1.25rem;
+}
+
+.tab-text {
+    font-size: 0.95rem;
+}
+
+/* Mobile: iconos solamente */
+@media (max-width: 576px) {
+    .reviews-tabs .nav-link {
+        padding: 0.75rem 1.25rem;
+    }
+
+    .tab-text {
+        display: none;
+    }
+}
+
+/* ================= RATINGS SUMMARY ================= */
+.ratings-summary {
+    padding: 2rem;
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+}
+
+.ratings-summary .rating-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.ratings-summary .stars {
+    font-size: 2rem;
+    color: #ffc107;
+    margin-bottom: 0.5rem;
+}
+
+.ratings-summary .total-reviews {
+    font-size: 1rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+/* ================= REVIEWS GRID ================= */
+.reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= REVIEW CARD (Google Maps) ================= */
+.review-card {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+    border-color: var(--primary);
+}
+
+/* Header con avatar y nombre */
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.review-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+}
+
+.review-author-info {
+    flex: 1;
+}
+
+.review-author {
+    font-weight: 700;
+    font-size: 1rem;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.review-date {
+    font-size: 0.85rem;
+    color: #6c757d;
+}
+
+/* Rating estrellas */
+.review-rating {
+    display: flex;
+    gap: 0.25rem;
+    margin-bottom: 0.75rem;
+}
+
+.review-rating .star {
+    color: #ffc107;
+    font-size: 1rem;
+}
+
+.review-rating .star.empty {
+    color: #ddd;
+}
+
+/* Texto de la reseña */
+.review-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #495057;
+    flex-grow: 1;
+    margin-bottom: 0;
+}
+
+.review-text.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* ================= INSTAGRAM POST CARD ================= */
+.instagram-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.instagram-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.instagram-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    /* Square aspect ratio */
+    overflow: hidden;
+    background: #f0f0f0;
+}
+
+.instagram-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.instagram-card:hover .instagram-image {
+    transform: scale(1.05);
+}
+
+.instagram-content {
+    padding: 1.25rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.instagram-caption {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #495057;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.instagram-stats {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding-top: 1rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+.instagram-stat {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.instagram-stat-icon {
+    font-size: 1.1rem;
+}
+
+/* ================= LOADING SKELETON ================= */
+.review-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+    border-radius: 16px;
+    height: 280px;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* ================= ESTADO VACÍO ================= */
+.reviews-empty {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: #6c757d;
+}
+
+.reviews-empty-icon {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    opacity: 0.5;
+}
+
+.reviews-empty-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.reviews-empty-subtext {
+    font-size: 0.9rem;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+    .ratings-summary {
+        padding: 1.5rem;
+    }
+
+    .ratings-summary .rating-number {
+        font-size: 3rem;
+    }
+
+    .ratings-summary .stars {
+        font-size: 1.5rem;
+    }
+
+    .review-card,
+    .instagram-card {
+        padding: 1.25rem;
+    }
+}
+
+/* ================= ANIMACIONES DE ENTRADA ================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.review-card,
+.instagram-card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.review-card:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.review-card:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.review-card:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.review-card:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.review-card:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.review-card:nth-child(6) {
+    animation-delay: 0.6s;
+}

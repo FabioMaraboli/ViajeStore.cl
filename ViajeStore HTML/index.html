@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- 
+    ================================================================
+    VIAJESTORE - LANDING PAGE PROFESIONAL
+    ================================================================
+    Estructura HTML5 limpia vinculada a archivos externos CSS y JS.
+-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViajeStore - Papas Fritas Gourmet Personalizadas & Servicios Tech | Santiago</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Personaliza tus papas fritas gourmet con toppings premium. Delivery en Macul, La Florida y Peñalolén. También ofrecemos servicios tecnológicos: desarrollo web, SEO y más. ⭐4.8/5">
+    <meta name="keywords"
+        content="papas fritas gourmet, delivery santiago, comida personalizada, servicios tech, desarrollo web, choclo gourmet">
+    <meta name="author" content="ViajeStore">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Spanish">
+    <meta name="geo.region" content="CL-RM">
+    <meta name="geo.placename" content="Santiago">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://viajestore.cl/">
+    <meta property="og:title" content="ViajeStore - Papas Fritas Gourmet Personalizadas & Servicios Tech">
+    <meta property="og:description"
+        content="Personaliza tus papas fritas con queso cheddar, bacon, salsas y más. Delivery rápido en Santiago. Servicios tecnológicos profesionales.">
+    <meta property="og:image" content="https://viajestore.cl/Recursos/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="es_CL">
+    <meta property="og:site_name" content="ViajeStore">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://viajestore.cl/">
+    <meta name="twitter:title" content="ViajeStore - Papas Fritas Gourmet & Tech">
+    <meta name="twitter:description"
+        content="Personaliza tus papas fritas gourmet. Delivery en Santiago + Servicios Tech profesionales.">
+    <meta name="twitter:image" content="https://viajestore.cl/Recursos/twitter-card.jpg">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Animate.css CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <!-- MercadoPago SDK -->
+    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
+    <!-- Estilos Personalizados -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles-animations.css">
+    <link rel="stylesheet" href="css/reviews.css">
+    <link rel="stylesheet" href="css/responsive-improvements.css">
+    <link rel="stylesheet" href="css/scroll-snap.css">
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="Recursos/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Recursos/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Recursos/favicon-16x16.png">
+    <link rel="icon" href="Recursos/favicon.png" type="image/png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="theme-color" content="#FF8C42">
+</head>
+
+<body>
+    <!-- Skip to content (Accesibilidad) -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Navegación lateral por secciones -->
+    <div class="scroll-nav-dots" id="scrollNavDots">
+        <div class="scroll-nav-dot active" data-section="Inicio" data-target="scrolly-video"></div>
+        <div class="scroll-nav-dot" data-section="Filosofía" data-target="philosophy-section"></div>
+        <div class="scroll-nav-dot" data-section="Menú" data-target="catalog"></div>
+        <div class="scroll-nav-dot" data-section="Tech" data-target="tech-video-hero"></div>
+        <div class="scroll-nav-dot" data-section="Servicios" data-target="services"></div>
+        <div class="scroll-nav-dot" data-section="Reseñas" data-target="reviews"></div>
+    </div>
+
+    <!-- NAV BAR -->
+    <nav class="navbar navbar-expand-xl fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="Recursos/IconoFondo.png" alt="ViajeStore Logo" height="60"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="#hero">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#scrolly-video">Experiencia</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#catalog">Papas Fritas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Servicios</a></li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-outline-light border-0" href="#" data-bs-toggle="offcanvas"
+                            data-bs-target="#cartOffcanvas">
+                            🛒 Carrito <span id="cart-count" class="cart-badge">0</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- SCROLLY VIDEO SECTION (FUSIONADO CON HERO) -->
+    <section id="scrolly-video" class="scrolly-video-container">
+        <div class="sticky-wrapper">
+            <!-- Video Local -->
+            <video id="scrollVideo" src="Recursos/video (1).mp4" muted loop autoplay playsinline preload="auto"></video>
+
+            <!-- Contenido Hero como Overlay -->
+            <div class="scrolly-text-overlay scrolly-text-visible container" id="hero-overlay">
+                <h1 class="hero-title">Las Mejores Papas Fritas<br>Personalizadas de Santiago</h1>
+                <p class="hero-subtitle">Pedidos a Macul, La Florida y Peñalolén. Envío gratis y servicios web
+                    profesionales</p>
+                <div class="d-flex justify-content-center gap-3 flex-wrap">
+                    <a href="#catalog" class="btn btn-primary-custom">PEDIR PAPAS FRITAS</a>
+                    <a href="#services" class="btn btn-secondary-custom">AGENDAR SERVICIO TECH</a>
+                </div>
+                <div class="mt-4 text-light opacity-75">
+                    <small>✓ 250+ órdenes entregadas | ⭐ 4.8/5 estrellas</small>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VALUE PROPOSITION (MISSION & VISION) -->
+    <section id="philosophy-section" class="section-padding bg-white overflow-hidden snap-section">
+        <div class="container">
+            <div class="row text-center mb-5 animate-on-scroll">
+                <div class="col-lg-8 mx-auto">
+                    <h2 class="section-title">Nuestra Filosofía Fast-Good</h2>
+                    <p class="text-muted">No solo cocinamos papas fritas, creamos experiencias felices.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 animate-on-scroll delay-100">
+                    <div class="value-card h-100">
+                        <div class="value-icon-wrapper mb-3">
+                            <div class="value-icon">🚀</div>
+                        </div>
+                        <h4>Nuestra Misión</h4>
+                        <p>Democratizar el sabor de calidad. Transformamos la comida rápida en un arte personalizado
+                            donde <strong>tú eres el chef</strong>.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll delay-200">
+                    <div class="value-card h-100">
+                        <div class="value-icon-wrapper mb-3">
+                            <div class="value-icon">🔮</div>
+                        </div>
+                        <h4>Nuestra Visión</h4>
+                        <p>Ser la referencia tech-food de Santiago, fusionando la velocidad de la era digital con el
+                            calor de la cocina casera.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 animate-on-scroll delay-300">
+                    <div class="value-card h-100">
+                        <div class="value-icon-wrapper mb-3">
+                            <div class="value-icon">❤️</div>
+                        </div>
+                        <h4>Compromiso Puro</h4>
+                        <p>Ingredientes frescos, trato humano y entregas que respetan tu tiempo. Pasión en cada chip y
+                            en cada clic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCT CATALOG -->
+    <section id="catalog" class="section-padding snap-section">
+        <a id="main-content"></a> <!-- Skip link target -->
+        <div class="container">
+            <!-- Header: Titulo Centro, Filtro Derecha -->
+            <!-- Título y Filtros -->
+            <div class="row align-items-center mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="section-title mb-4">Nuestro Menú</h2>
+                    <!-- Filtros Centralizados -->
+                    <div class="btn-group shadow-sm" role="group" aria-label="Filtro de productos">
+                        <button type="button" class="btn btn-outline-primary active px-4"
+                            onclick="filterProducts('todos')">Todos</button>
+                        <button type="button" class="btn btn-outline-primary px-4"
+                            onclick="filterProducts('papas')">Papas</button>
+                        <button type="button" class="btn btn-outline-primary px-4"
+                            onclick="filterProducts('choclo')">Choclo</button>
+                        <button type="button" class="btn btn-outline-primary px-4"
+                            onclick="filterProducts('combos')">Combos</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Carousel de Productos con Navegación -->
+            <div class="position-relative">
+                <button class="carousel-btn carousel-btn-prev" aria-label="Anterior">
+                    <i class="bi bi-chevron-left"></i>
+                </button>
+
+                <div id="products-carousel" class="products-carousel-container">
+                    <!-- Se llena dinámicamente con JS -->
+                </div>
+
+                <button class="carousel-btn carousel-btn-next" aria-label="Siguiente">
+                    <i class="bi bi-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH HERO VIDEO (New Section) -->
+    <section id="tech-video-hero" class="scrolly-video-container" style="height: 150vh;">
+        <div class="sticky-wrapper">
+            <video src="Recursos/VideoHeroTecno.mp4" muted loop autoplay playsinline preload="auto"
+                style="object-fit: cover; width: 100%; height: 100vh;"></video>
+            <div
+                class="scrolly-text-overlay scrolly-text-visible container d-flex flex-column justify-content-center align-items-center text-center">
+                <h2 class="hero-title display-3 fw-bold text-white mb-3">Fusión Digital</h2>
+                <p class="hero-subtitle text-white fs-4 mb-4">Soluciones Web y Tecnológicas para tu Negocio</p>
+                <a href="#services" class="btn btn-secondary-custom btn-lg">EXPLORAR SERVICIOS</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TECH SERVICES -->
+    <section id="services" class="section-padding bg-white snap-section">
+        <div class="container">
+            <h2 class="section-title">Servicios Tecnológicos Profesionales</h2>
+            <p class="text-center mb-5 text-muted">Ampliamos nuestros servicios con soluciones web y tech para tu
+                negocio</p>
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=500"
+                            class="card-img-top" alt="Diseño Web">
+                        <div class="card-body">
+                            <h5 class="card-title">Diseño Web</h5>
+                            <p class="card-text small text-muted">Sitios web responsivos y modernos.</p>
+                            <p class="card-price mb-2">Desde $500.000</p>
+                            <button class="btn btn-outline-dark w-100"
+                                onclick="openBookingModal('Diseño Web', 500000)">AGENDAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=500"
+                            class="card-img-top" alt="Mantenimiento">
+                        <div class="card-body">
+                            <h5 class="card-title">Mantenimiento Web</h5>
+                            <p class="card-text small text-muted">Actualizaciones y soporte continuo.</p>
+                            <p class="card-price mb-2">Desde $100.000/mes</p>
+                            <button class="btn btn-outline-dark w-100"
+                                onclick="openBookingModal('Mantenimiento Web', 100000)">AGENDAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom">
+                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=500"
+                            class="card-img-top" alt="Redes Sociales">
+                        <div class="card-body">
+                            <h5 class="card-title">Redes Sociales</h5>
+                            <p class="card-text small text-muted">Gestión de Instagram y TikTok.</p>
+                            <p class="card-price mb-2">Desde $200.000/mes</p>
+                            <button class="btn btn-outline-dark w-100"
+                                onclick="openBookingModal('Redes Sociales', 200000)">AGENDAR</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card card-custom">
+                        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=500" class="card-img-top"
+                            alt="Cámaras">
+                        <div class="card-body">
+                            <h5 class="card-title">Instalación Cámaras</h5>
+                            <p class="card-text small text-muted">Seguridad y monitoreo 24/7.</p>
+                            <p class="card-price mb-2">Desde $800.000</p>
+                            <button class="btn btn-outline-dark w-100"
+                                onclick="openBookingModal('Instalación Cámaras', 800000)">AGENDAR</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REVIEWS SECTION (Google Maps + Instagram) -->
+    <section id="reviews" class="section-padding bg-white snap-section">
+        <div class="container">
+            <!-- Header -->
+            <div class="text-center mb-5">
+                <h2 class="section-title">Lo Que Dicen Nuestros Clientes</h2>
+                <p class="text-muted">Reseñas reales de Google Maps e Instagram</p>
+            </div>
+
+            <!-- Tabs: Google Maps / Instagram -->
+            <ul class="nav nav-pills justify-content-center mb-4 reviews-tabs" id="reviewTabs" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="google-tab" data-tab="google" type="button" role="tab">
+                        <span class="tab-icon">⭐</span>
+                        <span class="tab-text">Google Maps</span>
+                    </button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="instagram-tab" data-tab="instagram" type="button" role="tab">
+                        <span class="tab-icon">📸</span>
+                        <span class="tab-text">Instagram</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Ratings Summary (Solo visible en Google tab) -->
+            <div id="ratings-summary" class="ratings-summary text-center mb-4">
+                <!-- Se llena dinámicamente con JavaScript -->
+            </div>
+
+            <!-- Reviews Grid -->
+            <div id="reviews-container" class="reviews-grid">
+                <!-- Loading skeleton (se reemplaza con contenido real) -->
+                <div class="review-skeleton"></div>
+                <div class="review-skeleton"></div>
+                <div class="review-skeleton"></div>
+                <div class="review-skeleton"></div>
+                <div class="review-skeleton"></div>
+                <div class="review-skeleton"></div>
+            </div>
+
+            <!-- Error Message (oculto por defecto) -->
+            <div id="reviews-error" class="alert alert-warning text-center d-none" role="alert">
+                <i class="bi bi-exclamation-triangle"></i>
+                <p class="mb-0">No pudimos cargar las reseñas en este momento. Por favor intenta más tarde.</p>
+            </div>
+
+            <!-- Call to Action -->
+            <div class="text-center mt-5">
+                <a href="https://maps.app.goo.gl/C4YTb3N21qTDsyYR8" target="_blank" class="btn btn-outline-primary me-2"
+                    id="google-cta">
+                    Ver más en Google Maps
+                </a>
+                <a href="https://www.instagram.com/viajestore.cl/" target="_blank"
+                    class="btn btn-outline-secondary d-none" id="instagram-cta">
+                    Seguir en Instagram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row gy-4">
+                <div class="col-md-4">
+                    <h5 class="text-primary-custom">ViajeStore</h5>
+                    <p>Papas fritas personalizadas + servicios web en Santiago. Fusionando sabor y tecnología.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>Links Útiles</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#hero">Inicio</a></li>
+                        <li><a href="#catalog">Papas Fritas</a></li>
+                        <li><a href="#services">Servicios Tech</a></li>
+                        <li><a href="#">Política de privacidad</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Contacto</h5>
+                    <ul class="list-unstyled">
+                        <li>📧 contacto@viajestore.cl</li>
+                        <li>📱 +56 9 1234 5678</li>
+                        <li>📍 Santiago, Chile</li>
+                        <li class="mt-2 text-warning"><small>Lun-Vie 10am-8pm | Sáb 12pm-6pm</small></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-5 pt-3 border-top border-secondary">
+                <small>© 2025 ViajeStore. Todos los derechos reservados.</small>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALES / PANELES -->
+
+    <!-- Carrito -->
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartOffcanvas" aria-labelledby="cartOffcanvasLabel">
+        <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="cartOffcanvasLabel">Tu Carrito</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+                aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cart-items-container" class="flex-grow-1 overflow-auto mb-3"></div>
+            <div class="border-top pt-3">
+                <div class="d-flex justify-content-between mb-2"><span>Subtotal:</span><span
+                        id="cart-subtotal">$0</span></div>
+                <div class="d-flex justify-content-between mb-2"><span>Envío Estimado:</span><span
+                        id="cart-shipping">$2.000</span></div>
+                <div class="d-flex justify-content-between mb-3"><span class="fs-5 fw-bold">TOTAL:</span><span
+                        class="fs-5 fw-bold text-primary-custom" id="cart-total">$0</span></div>
+                <button class="btn btn-primary-custom w-100" id="btn-checkout" onclick="initCheckout()">PROCEDER AL
+                    PAGO</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL PERSONALIZACION -->
+    <div class="modal fade" id="customizeModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg overflow-hidden" style="height: 90vh;">
+                <div class="modal-header border-0 bg-light flex-shrink-0">
+                    <div>
+                        <h5 class="modal-title fw-bold" id="modal-product-name">Personalizar</h5>
+                        <small class="text-muted">Añade los mejores ingredientes y acompañamientos</small>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body p-4 overflow-hidden">
+                    <!-- Fila Principal: Ingredientes y Extras -->
+                    <div class="row g-4 h-100">
+                        <!-- Columna Izquierda: Configuración (Ingredientes + Extras) -->
+                        <div class="col-lg-6 border-end-lg h-100 d-flex flex-column justify-content-center">
+
+                            <!-- PASO 1: Ingredientes (Visible por defecto) -->
+                            <div id="modal-step-1-toppings" class="d-flex flex-column h-100">
+                                <div class="flex-shrink-0">
+                                    <h6 class="fw-bold mb-3 d-flex align-items-center">
+                                        <i class="bi bi-layers-fill text-primary me-2"></i> Ingredientes Extra
+                                    </h6>
+                                </div>
+                                <div class="bg-white rounded p-3 border mb-3 flex-grow-1 overflow-auto"
+                                    style="min-height: 0;">
+                                    <div id="toppings-list"></div>
+                                </div>
+                            </div>
+
+                            <!-- PASO 2: Pregunta (Oculto) -->
+                            <div id="modal-step-2-question" class="d-none h-100 flex-column justify-content-center">
+                                <div
+                                    class="d-flex flex-column justify-content-center align-items-center bg-white rounded p-5 border text-center shadow-sm">
+                                    <i class="bi bi-cup-straw text-warning display-4 mb-3"></i>
+                                    <h5 class="fw-bold mb-4">¿Deseas agregar bebidas o postres?</h5>
+                                    <div class="d-flex gap-3 w-100 justify-content-center">
+                                        <button class="btn btn-outline-secondary px-4 py-2"
+                                            onclick="finishOrderNoExtras()">
+                                            No, solo papas
+                                        </button>
+                                        <button class="btn btn-primary-custom px-4 py-2" onclick="goToStep(3)">
+                                            Sí, ver menú
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- PASO 3: Extras (Oculto) -->
+                            <div id="modal-step-3-extras" class="d-none flex-column h-100">
+                                <div class="flex-shrink-0">
+                                    <h6 class="fw-bold mb-3 d-flex align-items-center">
+                                        <i class="bi bi-cup-straw text-primary me-2"></i> Bebidas y Postres
+                                    </h6>
+                                </div>
+                                <div class="bg-white rounded p-3 border flex-grow-1 overflow-auto"
+                                    style="min-height: 0;">
+                                    <div id="extras-list"></div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Columna Derecha: Vista Previa Visual -->
+                        <div class="col-lg-6 h-100">
+                            <div class="h-100 d-flex align-items-center justify-content-center p-2 bg-light rounded">
+                                <img id="modal-preview-image" src="" alt="Vista Previa"
+                                    class="img-fluid rounded shadow-sm w-100 h-100" style="object-fit: cover;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer justify-content-between bg-light border-0 flex-shrink-0">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center bg-white border rounded px-3 py-1">
+                            <button class="btn btn-link text-decoration-none p-0 fw-bold text-dark"
+                                onclick="updateModalQuantity(-1)">−</button>
+                            <input type="text" id="modal-quantity" value="1" readonly
+                                class="form-control-plaintext text-center mx-2 p-0"
+                                style="width: 30px; font-weight: bold;">
+                            <button class="btn btn-link text-decoration-none p-0 fw-bold text-dark"
+                                onclick="updateModalQuantity(1)">+</button>
+                        </div>
+                        <div>
+                            <small class="text-muted d-block" style="font-size: 0.8rem;">Total Estimado</small>
+                            <span class="fs-5 fw-bold text-primary-custom" id="modal-total-price">$0</span>
+                        </div>
+                    </div>
+                    <div>
+                        <!-- Botón Siguiente (Paso 1) -->
+                        <button id="btn-step-next" class="btn btn-primary-custom px-4" onclick="goToStep(2)">
+                            Siguiente <i class="bi bi-arrow-right ms-2"></i>
+                        </button>
+                        <!-- Botón Finalizar (Paso 3) -->
+                        <button id="btn-step-finish" class="btn btn-success px-4 d-none" onclick="addToCartFromModal()">
+                            Agregar Todo <i class="bi bi-cart-plus ms-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Agendamiento -->
+    <div class="modal fade" id="bookingModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-secondary text-white">
+                    <h5 class="modal-title">Agendar Servicio Tech</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-info">Servicio: <strong id="booking-service-name"></strong><br>Seña
+                        requerida: <strong>$10.000 CLP</strong></div>
+                    <form id="booking-form" onsubmit="handleBooking(event)">
+                        <div class="mb-2"><input type="text" class="form-control" required placeholder="Nombre">
+                        </div>
+                        <div class="mb-2"><input type="email" class="form-control" required placeholder="Email">
+                        </div>
+                        <div class="mb-2"><input type="tel" class="form-control" placeholder="+56 9..." required>
+                        </div>
+                        <div class="row">
+                            <div class="col-6 mb-2"><input type="date" class="form-control" id="booking-date" required>
+                            </div>
+                            <div class="col-6 mb-2"><select class="form-select" required>
+                                    <option value="">Hora...</option>
+                                    <option>09:00</option>
+                                    <option>10:00</option>
+                                    <option>11:00</option>
+                                    <option>12:00</option>
+                                    <option>13:00</option>
+                                    <option>14:00</option>
+                                    <option>15:00</option>
+                                    <option>16:00</option>
+                                    <option>17:00</option>
+                                </select></div>
+                        </div>
+                        <div class="mb-3"><textarea class="form-control" rows="2"
+                                placeholder="Descripción breve"></textarea></div>
+                        <div class="form-check mb-3"><input class="form-check-input" type="checkbox" required
+                                id="terms"><label class="form-check-label" for="terms">Acepto que la seña se
+                                descuenta.</label></div>
+                        <button type="submit" class="btn btn-secondary-custom w-100">PAGAR SEÑA Y AGENDAR</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" data-bs-backdrop="static">
+        <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content" style="max-height: 90vh;">
+                <div class="modal-header bg-dark text-white">
+                    <h5 class="modal-title">Finalizar Compra</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <!-- Success Message (Hidden by default) -->
+                <div id="checkout-success-message" class="d-none">
+                    <div class="modal-body text-center py-5">
+                        <div class="mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" fill="#27ae60"
+                                viewBox="0 0 16 16">
+                                <path
+                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
+                            </svg>
+                        </div>
+                        <h3 class="text-success mb-3">¡Compra Finalizada con Éxito!</h3>
+                        <p class="text-muted mb-2">Tu pedido ha sido confirmado y procesado por MercadoPago.</p>
+                        <p class="fw-bold mb-4" id="success-delivery-info"></p>
+                        <button class="btn btn-primary-custom px-5" onclick="closeCheckoutAndReload()">ACEPTAR</button>
+                    </div>
+                </div>
+
+                <!-- Form Container (visible by default) -->
+                <div id="checkout-form-container">
+                    <div class="modal-body" style="max-height: calc(90vh - 120px); overflow-y: auto;">
+                        <div class="row">
+                            <div class="col-md-7 border-end">
+                                <h6 class="mb-3">Datos de Envío</h6>
+                                <form id="checkout-form">
+                                    <div class="mb-3"><label>Nombre Completo</label><input type="text"
+                                            class="form-control" id="checkout-name" required></div>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-3"><label>Email</label><input type="email"
+                                                class="form-control" id="checkout-email" required></div>
+                                        <div class="col-md-6 mb-3"><label>Teléfono</label><input type="tel"
+                                                class="form-control" id="checkout-phone" placeholder="+56 9..."
+                                                required>
+                                        </div>
+                                    </div>
+                                    <div class="mb-3"><label>Dirección</label><input type="text" class="form-control"
+                                            id="checkout-address" required></div>
+                                    <div class="mb-3">
+                                        <label class="fw-bold">Comuna de Entrega</label>
+                                        <select class="form-select" id="checkout-commune" onchange="validateCommune()"
+                                            required>
+                                            <option value="">Selecciona tu comuna...</option>
+                                            <option value="Macul">Macul</option>
+                                            <option value="La Florida">La Florida</option>
+                                            <option value="Peñalolén">Peñalolén</option>
+                                            <option value="Other">Otra</option>
+                                        </select>
+                                        <div id="commune-feedback" class="invalid-feedback">Lo sentimos, solo entregamos
+                                            en
+                                            Macul, La Florida o Peñalolén.</div>
+                                        <div id="commune-success" class="valid-feedback">¡Excelente! Entregamos en tu
+                                            comuna.</div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-5">
+                                <h6 class="mb-3">Resumen</h6>
+                                <div id="checkout-summary" class="bg-light p-3 rounded mb-3"
+                                    style="max-height: 200px; overflow-y: auto;"></div>
+                                <div class="d-flex justify-content-between"><span>Subtotal:</span><span
+                                        id="checkout-subtotal">$0</span></div>
+                                <div class="d-flex justify-content-between"><span>Envío:</span><span>$2.000</span></div>
+                                <hr>
+                                <div class="d-flex justify-content-between mb-4"><span
+                                        class="fw-bold fs-5">Total:</span><span class="fw-bold fs-5 text-primary-custom"
+                                        id="checkout-total">$0</span></div>
+                                <button type="button" class="btn btn-primary-custom w-100 py-3" id="btn-pay"
+                                    onclick="processPayment()" disabled>PAGAR CON MERCADOPAGO</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botón Subir Arriba -->
+    <button type="button" class="btn btn-primary-custom btn-back-to-top" id="btn-back-to-top">
+        ↑
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="js/main.js"></script>
+    <script src="js/reviews.js"></script>
+    <script src="js/scroll-snap.js"></script>
+
+    <!-- Schema.org Structured Data (SEO) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "ViajeStore",
+      "image": "https://viajestore.cl/Recursos/IconoFondo.png",
+      "url": "https://viajestore.cl",
+      "telephone": "+56912345678",
+      "priceRange": "$$",
+      "servesCuisine": ["Fast Food Personalizado", "Comida Gourmet"],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Dirección Principal",
+        "addressLocality": "Santiago",
+        "addressRegion": "Región Metropolitana",
+        "postalCode": "8320000",
+        "addressCountry": "CL"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.4489,
+        "longitude": -70.6693
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "11:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "12:00",
+          "closes": "23:00"
+        }
+      ],
+      "menu": "https://viajestore.cl/#catalog",
+      "acceptsReservations": "False",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "250"
+      },
+      "paymentAccepted": "Efectivo, Tarjeta de Crédito, MercadoPago, Transferencia",
+      "currenciesAccepted": "CLP"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ViajeStore - Servicios Tecnológicos",
+      "image": "https://viajestore.cl/Recursos/IconoFondo.png",
+      "url": "https://viajestore.cl/#services",
+      "telephone": "+56912345678",
+      "priceRange": "$$-$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Santiago",
+        "addressRegion": "Región Metropolitana",
+        "addressCountry": "CL"
+      },
+      "sameAs": [
+        "https://www.instagram.com/viajestore",
+        "https://www.facebook.com/viajestore"
+      ],
+      "description": "Servicios tecnológicos profesionales: desarrollo web, SEO, gestión de redes sociales, e instalación de cámaras de seguridad.",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios Tech",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Desarrollo Web",
+              "description": "Sitios web profesionales y landing pages de alto impacto",
+              "provider": {
+                "@type": "Organization",
+                "name": "ViajeStore"
+              }
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Optimización SEO",
+              "description": "Posicionamiento orgánico en Google",
+              "provider": {
+                "@type": "Organization",
+                "name": "ViajeStore"
+              }
+            }
+          }
+        ]
+      }
+    }
+    </script>
+
+</body>
+
+</html>
